@@ -361,7 +361,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
         children: [
           Container(
             width: 90, padding: const EdgeInsets.symmetric(vertical: 8),
-            decoration: BoxDecoration(color: AppTheme.primary.withValues(alpha: 0.05), borderRadius: BorderRadius.circular(8)),
+            decoration: BoxDecoration(color: AppTheme.primary.withOpacity(0.05), borderRadius: BorderRadius.circular(8)),
             child: Center(child: Text(c.code, style: const TextStyle(color: AppTheme.primary, fontWeight: FontWeight.w900, fontSize: 13))),
           ),
           const SizedBox(width: 24),
@@ -478,8 +478,8 @@ class _StudentDashboardState extends State<StudentDashboard> {
                     return Container(
                       margin: const EdgeInsets.only(bottom: 8), padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: isWaitlist ? AppTheme.warning.withValues(alpha: 0.1) : AppTheme.primaryLight.withValues(alpha: 0.1),
-                        border: Border.all(color: isWaitlist ? AppTheme.warning.withValues(alpha: 0.3) : AppTheme.primaryLight.withValues(alpha: 0.3)),
+                        color: isWaitlist ? AppTheme.warning.withOpacity(0.1) : AppTheme.primaryLight.withOpacity(0.1),
+                        border: Border.all(color: isWaitlist ? AppTheme.warning.withOpacity(0.3) : AppTheme.primaryLight.withOpacity(0.3)),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Column(
@@ -489,7 +489,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(c.code, style: TextStyle(fontWeight: FontWeight.w900, fontSize: 11, color: isWaitlist ? AppTheme.warning : AppTheme.primary)),
-                              InkWell(onTap: () => _confirmDrop(e, c), child: Icon(Icons.close_rounded, size: 14, color: AppTheme.danger.withValues(alpha: 0.7)))
+                              InkWell(onTap: () => _confirmDrop(e, c), child: Icon(Icons.close_rounded, size: 14, color: AppTheme.danger.withOpacity(0.7)))
                             ],
                           ),
                           const SizedBox(height: 4),
@@ -524,9 +524,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
 
     // --- NEW: PROGRESS RING CALCULATIONS ---
     int totalProgramUnits = 0;
-    for(var c in programCourses) {
-      totalProgramUnits += c.units;
-    }
+    for(var c in programCourses) totalProgramUnits += c.units;
     double progress = totalProgramUnits == 0 ? 0 : totalUnitsEarned / totalProgramUnits;
 
     return Padding(
@@ -609,15 +607,15 @@ class _StudentDashboardState extends State<StudentDashboard> {
 
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12), border: Border.all(color: isCompleted ? AppTheme.success.withValues(alpha: 0.4) : AppTheme.border)),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12), border: Border.all(color: isCompleted ? AppTheme.success.withOpacity(0.4) : AppTheme.border)),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
-        leading: Icon(isCompleted ? Icons.check_circle_rounded : Icons.radio_button_unchecked_rounded, color: isCompleted ? AppTheme.success : AppTheme.textSecondary.withValues(alpha: 0.3), size: 28),
+        leading: Icon(isCompleted ? Icons.check_circle_rounded : Icons.radio_button_unchecked_rounded, color: isCompleted ? AppTheme.success : AppTheme.textSecondary.withOpacity(0.3), size: 28),
         title: Row(
           children: [
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-              decoration: BoxDecoration(color: AppTheme.primaryLight.withValues(alpha: 0.08), borderRadius: BorderRadius.circular(4)),
+              decoration: BoxDecoration(color: AppTheme.primaryLight.withOpacity(0.08), borderRadius: BorderRadius.circular(4)),
               child: Text(yr, style: const TextStyle(fontSize: 10, color: AppTheme.primaryLight, fontWeight: FontWeight.w900)),
             ),
             const SizedBox(width: 12),
@@ -685,7 +683,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
                         contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                         leading: Container(
                           width: 50, height: 50,
-                          decoration: BoxDecoration(color: isPassed ? AppTheme.success.withValues(alpha: 0.1) : AppTheme.danger.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(12)),
+                          decoration: BoxDecoration(color: isPassed ? AppTheme.success.withOpacity(0.1) : AppTheme.danger.withOpacity(0.1), borderRadius: BorderRadius.circular(12)),
                           child: Center(child: Text(e.grade!.toStringAsFixed(2), style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900, color: isPassed ? AppTheme.success : AppTheme.danger))),
                         ),
                         title: Row(
@@ -753,7 +751,7 @@ Widget _buildProfileTab() {
                   children: [
                     Container(
                       width: 120, height: 120, 
-                      decoration: BoxDecoration(color: AppTheme.primaryLight.withValues(alpha: 0.1), shape: BoxShape.circle), 
+                      decoration: BoxDecoration(color: AppTheme.primaryLight.withOpacity(0.1), shape: BoxShape.circle), 
                       child: Center(child: Text(me.initials, style: const TextStyle(fontSize: 40, fontWeight: FontWeight.w900, color: AppTheme.primary)))
                     ),
                     const SizedBox(height: 20),
@@ -806,7 +804,7 @@ Widget _buildProfileTab() {
           const SizedBox(height: 12),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Text('STUDENT ACCESS', style: GoogleFonts.plusJakartaSans(fontSize: 11, fontWeight: FontWeight.w900, color: AppTheme.sidebarText.withValues(alpha: 0.3), letterSpacing: 1.5)),
+            child: Text('STUDENT ACCESS', style: GoogleFonts.plusJakartaSans(fontSize: 11, fontWeight: FontWeight.w900, color: AppTheme.sidebarText.withOpacity(0.3), letterSpacing: 1.5)),
           ),
           const SizedBox(height: 12),
           _buildNavItem(icon: Icons.grid_view_rounded, label: 'Dashboard', index: 0),
@@ -831,12 +829,12 @@ Widget _buildProfileTab() {
         borderRadius: BorderRadius.circular(12),
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14), 
-          decoration: BoxDecoration(color: isActive ? AppTheme.primaryLight.withValues(alpha: 0.15) : Colors.transparent, borderRadius: BorderRadius.circular(12)),
+          decoration: BoxDecoration(color: isActive ? AppTheme.primaryLight.withOpacity(0.15) : Colors.transparent, borderRadius: BorderRadius.circular(12)),
           child: Row(
             children: [
-              Icon(icon, size: 20, color: isActive ? Colors.white : AppTheme.sidebarText.withValues(alpha: 0.5)),
+              Icon(icon, size: 20, color: isActive ? Colors.white : AppTheme.sidebarText.withOpacity(0.5)),
               const SizedBox(width: 14),
-              Text(label, style: GoogleFonts.plusJakartaSans(fontSize: 14, fontWeight: isActive ? FontWeight.w800 : FontWeight.w600, color: isActive ? Colors.white : AppTheme.sidebarText.withValues(alpha: 0.6))), 
+              Text(label, style: GoogleFonts.plusJakartaSans(fontSize: 14, fontWeight: isActive ? FontWeight.w800 : FontWeight.w600, color: isActive ? Colors.white : AppTheme.sidebarText.withOpacity(0.6))), 
               if (index == 1 && myEnrollments.isNotEmpty) ...[
                 const Spacer(),
                 Container(
@@ -876,7 +874,7 @@ Widget _buildProfileTab() {
       padding: const EdgeInsets.symmetric(horizontal: 16), 
       child: Container(
         padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.04), borderRadius: BorderRadius.circular(16)),
+        decoration: BoxDecoration(color: Colors.white.withOpacity(0.04), borderRadius: BorderRadius.circular(16)),
         child: Row(
           children: [
             Container(width: 38, height: 38, decoration: BoxDecoration(color: AppTheme.primaryLight, borderRadius: BorderRadius.circular(10)), child: Center(child: Text(me.initials, style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w900)))),
@@ -886,11 +884,11 @@ Widget _buildProfileTab() {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('${me.firstName} ${me.lastName}', style: GoogleFonts.plusJakartaSans(fontSize: 13, color: Colors.white, fontWeight: FontWeight.w800), overflow: TextOverflow.ellipsis),
-                  Text(me.email, style: GoogleFonts.plusJakartaSans(fontSize: 11, color: AppTheme.sidebarText.withValues(alpha: 0.4)), overflow: TextOverflow.ellipsis),
+                  Text(me.email, style: GoogleFonts.plusJakartaSans(fontSize: 11, color: AppTheme.sidebarText.withOpacity(0.4)), overflow: TextOverflow.ellipsis),
                 ],
               ),
             ),
-            IconButton(icon: Icon(Icons.power_settings_new_rounded, size: 20, color: AppTheme.sidebarText.withValues(alpha: 0.4)), onPressed: _handleLogout),
+            IconButton(icon: Icon(Icons.power_settings_new_rounded, size: 20, color: AppTheme.sidebarText.withOpacity(0.4)), onPressed: _handleLogout),
           ],
         ),
       ),

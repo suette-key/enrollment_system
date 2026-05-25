@@ -108,7 +108,7 @@ class _MainScreenState extends State<MainScreen> {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 11, 
                 fontWeight: FontWeight.w900, 
-                color: AppTheme.sidebarText.withValues(alpha: 0.3), 
+                color: AppTheme.sidebarText.withOpacity(0.3), 
                 letterSpacing: 1.5
               ),
             ),
@@ -148,7 +148,7 @@ class _MainScreenState extends State<MainScreen> {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           decoration: BoxDecoration(
-            color: isActive ? AppTheme.primaryLight.withValues(alpha: 0.15) : Colors.transparent,
+            color: isActive ? AppTheme.primaryLight.withOpacity(0.15) : Colors.transparent,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Row(
@@ -156,7 +156,7 @@ class _MainScreenState extends State<MainScreen> {
               Icon(
                 isActive ? activeIcon : icon, 
                 size: 20, 
-                color: isActive ? Colors.white : AppTheme.sidebarText.withValues(alpha: 0.5)
+                color: isActive ? Colors.white : AppTheme.sidebarText.withOpacity(0.5)
               ),
               const SizedBox(width: 14),
               Text(
@@ -164,7 +164,7 @@ class _MainScreenState extends State<MainScreen> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 14,
                   fontWeight: isActive ? FontWeight.w800 : FontWeight.w600,
-                  color: isActive ? Colors.white : AppTheme.sidebarText.withValues(alpha: 0.6),
+                  color: isActive ? Colors.white : AppTheme.sidebarText.withOpacity(0.6),
                 ),
               ),
             ],
@@ -211,7 +211,7 @@ class _MainScreenState extends State<MainScreen> {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.04), 
+          color: Colors.white.withOpacity(0.04), 
           borderRadius: BorderRadius.circular(16)
         ),
         child: Row(
@@ -238,14 +238,14 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                   Text(
                     'admin@isatu.edu', 
-                    style: GoogleFonts.plusJakartaSans(fontSize: 11, color: AppTheme.sidebarText.withValues(alpha: 0.4)), 
+                    style: GoogleFonts.plusJakartaSans(fontSize: 11, color: AppTheme.sidebarText.withOpacity(0.4)), 
                     overflow: TextOverflow.ellipsis
                   ),
                 ],
               ),
             ),
             IconButton(
-              icon: Icon(Icons.power_settings_new_rounded, size: 20, color: AppTheme.sidebarText.withValues(alpha: 0.4)),
+              icon: Icon(Icons.power_settings_new_rounded, size: 20, color: AppTheme.sidebarText.withOpacity(0.4)),
               onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginScreen())),
             ),
           ],

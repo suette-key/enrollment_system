@@ -47,35 +47,35 @@ class StatusBadge extends StatelessWidget {
       case EnrollmentStatus.enrolled:
         return {
           'label': 'Enrolled',
-          'bg': AppTheme.success.withValues(alpha: 0.12),
+          'bg': AppTheme.success.withOpacity(0.12),
           'dot': AppTheme.success,
           'text': AppTheme.success,
         };
       case EnrollmentStatus.pending:
         return {
           'label': 'Pending',
-          'bg': AppTheme.warning.withValues(alpha: 0.12),
+          'bg': AppTheme.warning.withOpacity(0.12),
           'dot': AppTheme.warning,
           'text': AppTheme.warning,
         };
       case EnrollmentStatus.waitlisted: // Added new status
         return {
           'label': 'Waitlisted',
-          'bg': Colors.orange.withValues(alpha: 0.12), // Using standard orange for waitlist
+          'bg': Colors.orange.withOpacity(0.12), // Using standard orange for waitlist
           'dot': Colors.orange,
           'text': Colors.orange,
         };
       case EnrollmentStatus.dropped:
         return {
           'label': 'Dropped',
-          'bg': AppTheme.danger.withValues(alpha: 0.12),
+          'bg': AppTheme.danger.withOpacity(0.12),
           'dot': AppTheme.danger,
           'text': AppTheme.danger,
         };
       case EnrollmentStatus.completed: // Updated from graduated to completed
         return {
           'label': 'Completed',
-          'bg': AppTheme.primaryLight.withValues(alpha: 0.12),
+          'bg': AppTheme.primaryLight.withOpacity(0.12),
           'dot': AppTheme.primaryLight,
           'text': AppTheme.primaryLight,
         };

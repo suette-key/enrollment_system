@@ -151,7 +151,7 @@ class ReportsScreen extends StatelessWidget {
                     dotData: const FlDotData(show: false),
                     belowBarData: BarAreaData(
                       show: true,
-                      color: AppTheme.primaryLight.withValues(alpha: 0.08),
+                      color: AppTheme.primaryLight.withOpacity(0.08),
                     ),
                   ),
                 ],
@@ -304,7 +304,7 @@ class ReportsScreen extends StatelessWidget {
                               width: 36,
                               height: 36,
                               decoration: BoxDecoration(
-                                color: dept.color.withValues(alpha: 0.12),
+                                color: dept.color.withOpacity(0.12),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Center(

@@ -145,7 +145,7 @@ class _GradingScreenState extends State<GradingScreen> {
                         children: [
                           Container(
                             padding: const EdgeInsets.all(12),
-                            decoration: BoxDecoration(color: AppTheme.primaryLight.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(8)),
+                            decoration: BoxDecoration(color: AppTheme.primaryLight.withOpacity(0.1), borderRadius: BorderRadius.circular(8)),
                             child: const Icon(Icons.analytics_rounded, color: AppTheme.primaryLight),
                           ),
                           const SizedBox(width: 16),
@@ -188,7 +188,7 @@ class _GradingScreenState extends State<GradingScreen> {
                     
                     Expanded(
                       child: classList.isEmpty 
-                        ? Center(child: Text("No students match this filter.", style: TextStyle(color: AppTheme.textSecondary.withValues(alpha: 0.7), fontSize: 16)))
+                        ? Center(child: Text("No students match this filter.", style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.7), fontSize: 16)))
                         : ListView.builder(
                             itemCount: classList.length,
                             itemBuilder: (ctx, i) {
@@ -216,7 +216,7 @@ class _GradingScreenState extends State<GradingScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.drive_file_rename_outline_rounded, size: 64, color: AppTheme.border.withValues(alpha: 0.8)),
+          Icon(Icons.drive_file_rename_outline_rounded, size: 64, color: AppTheme.border.withOpacity(0.8)),
           const SizedBox(height: 16),
           const Text('Select a course from the dropdown above to begin grading.', style: TextStyle(color: AppTheme.textSecondary, fontSize: 16)),
         ],
@@ -328,10 +328,10 @@ class _GradeInputRowState extends State<_GradeInputRow> {
               decoration: InputDecoration(
                 hintText: 'e.g. 1.5',
                 filled: true,
-                fillColor: isLocked ? AppTheme.success.withValues(alpha: 0.1) : AppTheme.bgMain,
+                fillColor: isLocked ? AppTheme.success.withOpacity(0.1) : AppTheme.bgMain,
                 contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 8),
                 errorText: _hasError ? 'Invalid' : null,
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: isLocked ? AppTheme.success.withValues(alpha: 0.5) : AppTheme.border)),
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: isLocked ? AppTheme.success.withOpacity(0.5) : AppTheme.border)),
                 enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: AppTheme.border)),
                 focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: AppTheme.primary, width: 2)),
               ),

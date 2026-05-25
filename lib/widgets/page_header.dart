@@ -37,7 +37,7 @@ class PageHeader extends StatelessWidget {
             ],
           ),
         ),
-        ...?actions,
+        if (actions != null) ...actions!,
       ],
     );
   }

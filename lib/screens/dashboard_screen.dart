@@ -153,7 +153,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: MockData.enrollments.length,
-            separatorBuilder: (_, _) => const Divider(height: 20),
+            separatorBuilder: (_, __) => const Divider(height: 20),
             itemBuilder: (ctx, i) {
               final e = MockData.enrollments[i];
               final s = MockData.students.firstWhere(
