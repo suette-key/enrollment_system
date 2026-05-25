@@ -86,7 +86,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             width: 120,
             height: 120,
             decoration: BoxDecoration(
-              color: AppTheme.primaryLight.withOpacity(0.1),
+              color: AppTheme.primaryLight.withValues(alpha: 0.1),
               shape: BoxShape.circle,
             ),
             child: const Center(

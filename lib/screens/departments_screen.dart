@@ -76,7 +76,7 @@ class DepartmentsScreen extends StatelessWidget {
               width: 38,
               height: 38,
               decoration: BoxDecoration(
-                color: color.withOpacity(0.12),
+                color: color.withValues(alpha: 0.12),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Icon(icon, color: color, size: 18),
@@ -112,7 +112,7 @@ class DepartmentsScreen extends StatelessWidget {
                 width: 48,
                 height: 48,
                 decoration: BoxDecoration(
-                  color: dept.color.withOpacity(0.12),
+                  color: dept.color.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(14),
                 ),
                 child: Center(
@@ -168,7 +168,7 @@ class DepartmentsScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
-                  color: dept.color.withOpacity(0.1),
+                  color: dept.color.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(

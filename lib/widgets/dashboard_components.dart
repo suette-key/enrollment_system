@@ -101,7 +101,7 @@ class EnrollmentTrendChart extends StatelessWidget {
                         toY: (e.value['count'] as int).toDouble(),
                         color: (e.value['count'] as int) > 100
                             ? AppTheme.primary
-                            : AppTheme.primaryLight.withOpacity(0.5),
+                            : AppTheme.primaryLight.withValues(alpha: 0.5),
                         width: 16,
                         borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(4),

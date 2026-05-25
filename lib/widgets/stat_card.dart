@@ -53,8 +53,8 @@ class StatCard extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
                     color: (trendUp ?? true)
-                        ? AppTheme.success.withOpacity(0.1)
-                        : AppTheme.danger.withOpacity(0.1),
+                        ? AppTheme.success.withValues(alpha: 0.1)
+                        : AppTheme.danger.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Row(
@@ -105,7 +105,7 @@ class StatCard extends StatelessWidget {
               subtitle!,
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 11,
-                color: AppTheme.textSecondary.withOpacity(0.7),
+                color: AppTheme.textSecondary.withValues(alpha: 0.7),
               ),
             ),
           ],

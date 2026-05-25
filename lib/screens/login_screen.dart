@@ -99,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
             image: const AssetImage('assets/isatu_bg.jpeg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-              Colors.white.withOpacity(0.3), 
+              Colors.white.withValues(alpha: 0.3), 
               BlendMode.dstATop,
             ),
           ),
@@ -111,11 +111,11 @@ class _LoginScreenState extends State<LoginScreen> {
               width: 400,
               padding: const EdgeInsets.all(40),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.9),
+                color: Colors.white.withValues(alpha: 0.9),
                 borderRadius: BorderRadius.circular(24),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1), 
+                    color: Colors.black.withValues(alpha: 0.1), 
                     blurRadius: 20, 
                     offset: const Offset(0, 10)
                   ),
@@ -134,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       errorBuilder: (context, error, stackTrace) {
                         return Container(
                           padding: const EdgeInsets.all(16),
-                          decoration: BoxDecoration(color: AppTheme.primaryLight.withOpacity(0.1), shape: BoxShape.circle),
+                          decoration: BoxDecoration(color: AppTheme.primaryLight.withValues(alpha: 0.1), shape: BoxShape.circle),
                           child: const Icon(Icons.school_rounded, size: 48, color: AppTheme.primary),
                         );
                       },
@@ -221,7 +221,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: _isHovering ? AppTheme.primaryLight : AppTheme.primary,
                           borderRadius: BorderRadius.circular(12),
                           boxShadow: _isHovering 
-                            ? [BoxShadow(color: AppTheme.primaryLight.withOpacity(0.4), blurRadius: 10, offset: const Offset(0, 4))]
+                            ? [BoxShadow(color: AppTheme.primaryLight.withValues(alpha: 0.4), blurRadius: 10, offset: const Offset(0, 4))]
                             : [],
                         ),
                         child: Center(

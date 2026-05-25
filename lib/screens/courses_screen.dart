@@ -210,7 +210,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
         children: [
           Container(
             width: 90, padding: const EdgeInsets.symmetric(vertical: 10),
-            decoration: BoxDecoration(color: AppTheme.primaryLight.withOpacity(0.1), borderRadius: BorderRadius.circular(8)),
+            decoration: BoxDecoration(color: AppTheme.primaryLight.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(8)),
             child: Center(child: Text(c.code, style: const TextStyle(color: AppTheme.primaryLight, fontWeight: FontWeight.w900, fontSize: 13))),
           ),
           const SizedBox(width: 24),
