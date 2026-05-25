@@ -71,6 +71,15 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  // Helper method to automatically fill credentials and log in instantly
+  void _quickLogin(String email, String password) {
+    setState(() {
+      _emailController.text = email;
+      _passwordController.text = password;
+    });
+    _handleLogin();
+  }
+
   @override
   void dispose() {
     _emailController.dispose();
@@ -81,16 +90,14 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // We use a Container with BoxDecoration to set the full-page background
       body: Container(
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.white, // Fallback color
+          color: Colors.white,
           image: DecorationImage(
             image: const AssetImage('assets/isatu_bg.jpeg'),
             fit: BoxFit.cover,
-            // --- ADJUST TRANSPARENCY HERE ---
             colorFilter: ColorFilter.mode(
               Colors.white.withOpacity(0.3), 
               BlendMode.dstATop,
@@ -104,7 +111,6 @@ class _LoginScreenState extends State<LoginScreen> {
               width: 400,
               padding: const EdgeInsets.all(40),
               decoration: BoxDecoration(
-                // Semi-transparent card to show the background slightly
                 color: Colors.white.withOpacity(0.9),
                 borderRadius: BorderRadius.circular(24),
                 boxShadow: [
@@ -166,11 +172,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 8),
                   TextField(
                     controller: _emailController,
-                    textInputAction: TextInputAction.next, // Moves to next field on Enter
+                    textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       hintText: 'Username or ISAT U email',
                       filled: true,
-                      fillColor: Colors.white, // Solid white for better readability
+                      fillColor: Colors.white, 
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
                       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                     ),
@@ -189,11 +195,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: _passwordController,
                     obscureText: true,
                     textInputAction: TextInputAction.done,
-                    onSubmitted: (_) => _handleLogin(), // TRIGGERS LOGIN ON ENTER
+                    onSubmitted: (_) => _handleLogin(), 
                     decoration: InputDecoration(
                       hintText: 'Password',
                       filled: true,
-                      fillColor: Colors.white, // Solid white for better readability
+                      fillColor: Colors.white, 
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
                       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                     ),
@@ -229,6 +235,69 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       ),
+                    ),
+                  ),
+                  
+                  const SizedBox(height: 32),
+                  const Divider(color: AppTheme.border),
+                  const SizedBox(height: 16),
+                  
+                  // --- NEW: SYSTEM EVALUATION BANNER WITH ONE-CLICK LOGINS ---
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: AppTheme.bgMain,
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: AppTheme.border),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            const Icon(Icons.analytics_rounded, size: 16, color: AppTheme.primaryLight),
+                            const SizedBox(width: 8),
+                            Text(
+                              'Evaluation Sandbox Keys',
+                              style: GoogleFonts.plusJakartaSans(fontSize: 12, fontWeight: FontWeight.w800, color: AppTheme.textPrimary),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 14),
+                        
+                        // Admin Quick-Login Button
+                        SizedBox(
+                          width: double.infinity,
+                          height: 36,
+                          child: OutlinedButton.icon(
+                            onPressed: () => _quickLogin('admin@isatu.edu', 'admin123'),
+                            icon: const Icon(Icons.admin_panel_settings_rounded, size: 14),
+                            label: const Text('Auto-Login as Admin', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                            style: OutlinedButton.styleFrom(
+                              foregroundColor: AppTheme.primaryLight,
+                              side: const BorderSide(color: AppTheme.primaryLight),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        
+                        // Student Quick-Login Button
+                        SizedBox(
+                          width: double.infinity,
+                          height: 36,
+                          child: OutlinedButton.icon(
+                            onPressed: () => _quickLogin('maria.santos@students.isatu.edu', 'password123'),
+                            icon: const Icon(Icons.person_rounded, size: 14),
+                            label: const Text('Auto-Login as Student', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                            style: OutlinedButton.styleFrom(
+                              foregroundColor: AppTheme.textSecondary,
+                              side: const BorderSide(color: AppTheme.border),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
